@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="bg-[#EDEDED] p-10">    
+    <div className="bg-[#EDEDED] p-14">    
       <div className="grid xl:grid-cols-4 grid-cols-1  gap-10 ">
         <div className="flex flex-col gap-5">
           <p className="text-[22px]">© 2021 DressKlub</p>

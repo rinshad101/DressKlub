@@ -21,9 +21,9 @@ function NavBar() {
       </li>
 
       <div className="list-none xl:flex gap-4 hidden">
-        <li>Women</li>
-        <li>Men</li>
-        <li>Sale</li>
+        <li className="hover:underline cursor-pointer">Women</li>
+        <li className="hover:underline cursor-pointer">Men</li>
+        <li className="hover:underline cursor-pointer">Sale</li>
       </div>
       <div className="list-none flex justify-center xl:text-4xl">
         <li>DressKlub</li>
