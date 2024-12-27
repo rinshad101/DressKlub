@@ -15,7 +15,7 @@ import {
 
 function NavBar() {
   return (
-    <div className="flex justify-between items-center p-5 bg-gray-100 xl:px-10 text-2xl w-full">
+    <div className="flex justify-between items-center p-5 bg-gray-100 xl:px-10 text-2xl w-full fixed top-0 z-50 bg-transparent">
       <li className="xl:hidden block">
         <Menu />
       </li>

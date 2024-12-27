@@ -57,7 +57,7 @@ function Footer() {
           </button>
         </div>
       </div>
-      <div className="py-10 ">
+      <div className="pt-10 ">
           <p>
             Terms & Conditions Privacy Policy Accessibility Statement © 2035 by
             DressKlub.
