@@ -9,3 +9,50 @@
   font-family: "League Spartan", serif;
   font-optical-sizing: auto;
 }
+
+.carousel-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border: 5px solid #ffffff;
+}
+
+.custom-prev-btn,
+.custom-next-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.custom-prev-btn {
+  left: 15px;
+  top:250px; 
+}
+
+.custom-next-btn {
+  right: 15px;
+  top:250px;
+}
+
+.custom-prev-btn:hover,
+.custom-next-btn:hover {
+  background-color: #555;
+}
+
+
+
+
+
+

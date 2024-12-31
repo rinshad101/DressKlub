@@ -1,7 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import img from "../assets/images/home.avif";
+import video from "../assets/images/video.mp4";
+
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import Collection from "./Collection";
+import api from "../../servies/api";
+import { Link } from "react-router-dom";
+
+const items = [
+  <img src={img} alt="Item 1" className="carousel-image" />,
+  <img src={img} alt="Item 2" className="carousel-image" />,
+  <img src={img} alt="Item 3" className="carousel-image" />,
+];
+
+const responsive = {
+  0: { items: 1 },
+  576: { items: 2 },
+  1024: { items: 3 },
+};
 
 function Home() {
+  const renderPrevButton = () => (
+    <button className="custom-prev-btn">&#8249;</button>
+  );
+
+  const renderNextButton = () => (
+    <button className="custom-next-btn">&#8250;</button>
+  );
+
   return (
     <div>
       <div className="w-full xl:h-[800px] h-[350px] relative">
@@ -19,7 +46,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="xl:p-10 mt-5">
+      <div className="xl:p-5 mt-5">
         <div className="flex justify-between items-center xl:px-7 px-5">
           <div>
             <p className="xl:text-4xl text-2xl">Shop by Category</p>
@@ -41,9 +68,11 @@ function Home() {
 
           <div className="relative xl:h-[450px] h-[200px]">
             <img src={img} alt="home" className="w-full h-full object-cover" />
-            <button className="bg-white xl:w-[150px] w-[100px] xl:h-14 h-10 text-black xl:text-xl text-base px-2 py-2 rounded-[4px] absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:bg-black hover:text-white">
-              Bottoms
-            </button>
+            <Link to={"/collections"}>
+              <button className="bg-white xl:w-[150px] w-[100px] xl:h-14 h-10 text-black xl:text-xl text-base px-2 py-2 rounded-[4px] absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:bg-black hover:text-white">
+                Bottoms
+              </button>
+            </Link>
           </div>
 
           <div className="relative xl:h-[450px] h-[200px]">
@@ -55,8 +84,25 @@ function Home() {
         </div>
       </div>
 
-
-      
+      <div>
+        <div className="xl:px-10">
+          <div className="flex justify-between mb-10 text-3xl ">
+            <p>Latest Arrivals</p>
+          </div>
+          <div>
+            <AliceCarousel
+              items={items}
+              autoPlay
+              responsive={responsive}
+              autoPlayInterval={3000}
+              infinite
+              DotsControls
+              renderPrevButton={renderPrevButton}
+              renderNextButton={renderNextButton}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
