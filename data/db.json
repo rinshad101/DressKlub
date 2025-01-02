@@ -1,64 +1,187 @@
 {
   "product": [
     {
-      "id": 1,
-      "name": "Dress 1",
-      "price": 100,
-      "image": "https://iili.io/2ewvH5G.jpg"
+      "id": "1",
+      "name": "Women's Crewneck Sweater",
+      "catagory": "Women",
+      "price": 799,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "image": [
+        "https://iili.io/2SYRons.jpg",
+        "https://iili.io/2SYdTVn.jpg"
+      ]
     },
     {
-      "id": 2,
-      "name": "Dress 2",
-      "price": 200,
-      "image": "https://iili.io/2ewvH5G.jpg"
+      "id": "2",
+      "name": "White Denim Jeans",
+      "catagory": "Women",
+      "price": 1099,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "image": [
+        "https://iili.io/2SYdsON.jpg",
+        "https://iili.io/2SYRpJ2.jpg"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Blue color Knit Beanie",
+      "catagory": "accessories",
+      "price": 299,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "image": [
+        "https://iili.io/2SYq8WN.jpg",
+        "https://iili.io/2SY54rx.jpg"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Women's Oversized Sweatshirt",
+      "catagory": "Women",
+      "price": 400,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "image": [
+        "https://iili.io/2SYoaEB.jpg",
+        "https://iili.io/2SY7D92.jpg"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Bucket Hat",
+      "catagory": "accessories",
+      "price": 500,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "image": [
+        "https://iili.io/2SYxHGV.jpg",
+        "https://iili.io/2SYYLWF.jpg"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Men's Denim Jeans",
+      "catagory": "Men",
+      "price": 600,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "image": [
+        "https://iili.io/2SYx8KB.jpg",
+        "https://iili.io/2SYc5Qt.jpg"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Men's Denim Jeans",
+      "catagory": "Men",
+      "price": 700,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "image": [
+        "https://iili.io/2SYzhgI.jpg",
+        "https://iili.io/2SYckaj.jpg"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Men's Cotton Shorts",
+      "catagory": "Men",
+      "price": 800,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "image": [
+        "https://iili.io/2SYIbun.jpg",
+        "https://iili.io/2SYlFSf.jpg"
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Oversized T-Shirt",
+      "catagory": "Women",
+      "price": 900,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "image": [
+        "https://iili.io/2SYTrH7.jpg",
+        "https://iili.io/2SYlGKg.jpg"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Oversized T-Shirt",
+      "catagory": "Women",
+      "price": 1000,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "image": [
+        "https://iili.io/2SYuIxs.jpg",
+        "https://iili.io/2SY0dzB.jpg"
+      ]
+    }
+  ],
+  "user": [
+    {
+      "id": "1",
+      "name": "rinshad",
+      "password": "rinshad",
+      "email": "rinshad@gmail.com",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "user",
+      "password": "user",
+      "email": "user@gmail.com",
+      "role": "user"
     },
     {
       "id": 3,
-      "name": "Dress 3",
-      "price": 300,
-      "image": "https://iili.io/2ewvH5G.jpg"
-    },
-    {
-      "id": 4,
-      "name": "Dress 4",
-      "price": 400,
-      "image": "https://iili.io/2ewvH5G.jpg"
-    },
-    {
-      "id": 5,
-      "name": "Dress 5",
-      "price": 500,
-      "image": "https://iili.io/2ewvH5G.jpg"
-    },
-    {
-      "id": 6,
-      "name": "Dress 6",
-      "price": 600,
-      "image": "https://iili.io/2ewvH5G.jpg"
-    },
-    {
-      "id": 7,
-      "name": "Dress 7",
-      "price": 700,
-      "image": "https://iili.io/2ewvH5G.jpg"
-    },
-    {
-      "id": 8,
-      "name": "Dress 8",
-      "price": 800,
-      "image": "https://iili.io/2ewvH5G.jpg"
-    },
-    {
-      "id": 9,
-      "name": "Dress 9",
-      "price": 900,
-      "image": "https://iili.io/2ewvH5G.jpg"
-    },
-    {
-      "id": 10,
-      "name": "Dress 10",
-      "price": 1000,
-      "image": "https://iili.io/2ewvH5G.jpg"
+      "name": "amir",
+      "password": "12345678",
+      "email": "amir@gmail.com",
+      "role": "user"
     }
   ]
 }

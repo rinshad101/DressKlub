@@ -1,10 +1,29 @@
-import React, { useEffect } from "react";
-import Products from "/data/db";
+import React, { useEffect, useContext, useState } from "react";
+import DataContext from "../ContextApi/DataContext";
+import { Link, useParams } from "react-router-dom";
 
 function Collection() {
-  useEffect(()=>{
-    window.scroll(0,0)
-  },[])
+  const { data, loading } = useContext(DataContext);
+  const { category } = useParams();
+  const [filteredData, setFilteredData] = useState([]);
+
+ 
+  useEffect(() => {
+    if (category === "all") {
+      setFilteredData(data);
+    } else {
+      const filtered = data.filter((item) => item.catagory === category);
+      setFilteredData(filtered);
+    }
+  }, [category, data]);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="mt-10 flex flex-col">
       {/* <div className="flex flex-col justify-center items-center h-[400px] mt-16 p-5">
@@ -20,7 +39,7 @@ function Collection() {
       </div>
 
       <div className=" flex flex-row xl:pl-10 ">
-        <div className="w-[600px] overflow-x-hidden overflow-y-visible hidden">
+        <div className="w-[300px] overflow-x-hidden overflow-y-visible hidden xl:block">
           <div className="pr-2">
             <div className="text-2xl">
               <h1>Browse By</h1>
@@ -31,7 +50,7 @@ function Collection() {
             "
             >
               <p>All Products</p>
-              
+
               <p>Accessories</p>
               <p>Sale</p>
               <p>New Arrivals</p>
@@ -83,7 +102,7 @@ function Collection() {
               </p>
             </div>
             <div className="w-full flex justify-between pr-5 py-5">
-              <p>14 products</p>
+              <p>{filteredData.length} products</p>
               <div>
                 Sort by:
                 <select name="" id="">
@@ -99,22 +118,23 @@ function Collection() {
           </div>
 
           <div className="grid grid-cols-1  xl:grid-cols-4 gap-7">
-            {Products.product.map((item) => (
-              <div
-                key={item.id}
-                className=" hover:shadow-xl transition"
-              >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full xl:h-[400px] h-[150px] object-cover  mb-4"
-                />
-                <h3 className="pl-2 text-xl font-semibold mb-2">{item.name}</h3>
-                <p className="pl-2 text-lg font-medium text-gray-600">
-                  ₹{item.price}
-                </p>
-                
-              </div>
+            {filteredData.map((item, index) => (
+              <Link to={`/collections/all/${item.id}`} key={index}>
+                <div key={index} className=" hover:shadow-xl transition">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full xl:h-[400px] h-[150px] object-cover  mb-4"
+                  />
+                  {console.log(item.name)}
+                  <h3 className="pl-2 text-xl font-semibold mb-2">
+                    {item.name}
+                  </h3>
+                  <p className="pl-2 text-lg font-medium text-gray-600">
+                    ₹{item.price}
+                  </p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

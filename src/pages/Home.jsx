@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import img from "../assets/images/home.avif";
-import video from "../assets/images/video.mp4";
 
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import Collection from "./Collection";
-import api from "../../servies/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const items = [
   <img src={img} alt="Item 1" className="carousel-image" />,
@@ -21,6 +18,7 @@ const responsive = {
 };
 
 function Home() {
+  const navigate = useNavigate();
   const renderPrevButton = () => (
     <button className="custom-prev-btn">&#8249;</button>
   );
@@ -28,6 +26,11 @@ function Home() {
   const renderNextButton = () => (
     <button className="custom-next-btn">&#8250;</button>
   );
+
+  const handleNav = (category) => {
+    console.log(category);
+    navigate(`/collections/${category}`);
+  };
 
   return (
     <div>
@@ -53,7 +56,7 @@ function Home() {
           </div>
 
           <div className="flex xl:gap-4 gap-2 xl:text-[22px] text-md">
-            <p className=" hover:underline cursor-pointer">Women</p>
+            <p onClick={()=> handleNav("Women")} className=" hover:underline cursor-pointer">Women</p>
             <p className=" hover:underline cursor-pointer">Men</p>
           </div>
         </div>
@@ -62,7 +65,7 @@ function Home() {
           <div className="relative xl:h-[450px] h-[200px]">
             <img src={img} alt="home" className="w-full h-full object-cover" />
             <button className="bg-white xl:w-[150px] w-[100px] xl:h-14 h-10 text-black xl:text-xl text-base px-2 py-2 rounded-[4px] absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:bg-black hover:text-white">
-              Tops
+              Women
             </button>
           </div>
 
@@ -70,14 +73,14 @@ function Home() {
             <img src={img} alt="home" className="w-full h-full object-cover" />
             <Link to={"/collections"}>
               <button className="bg-white xl:w-[150px] w-[100px] xl:h-14 h-10 text-black xl:text-xl text-base px-2 py-2 rounded-[4px] absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:bg-black hover:text-white">
-                Bottoms
+                Men
               </button>
             </Link>
           </div>
 
           <div className="relative xl:h-[450px] h-[200px]">
             <img src={img} alt="home" className="w-full h-full object-cover" />
-            <button className="bg-white xl:w-[150px] w-[100px] xl:h-14 h-10 text-black xl:text-xl text-base px-2 py-2 rounded-[4px] absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:bg-black hover:text-white">
+            <button onClick={()=> handleNav("accessories")} className="bg-white xl:w-[150px] w-[100px] xl:h-14 h-10 text-black xl:text-xl text-base px-2 py-2 rounded-[4px] absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:bg-black hover:text-white">
               Accessories
             </button>
           </div>

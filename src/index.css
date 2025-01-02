@@ -9,6 +9,9 @@
   font-family: "League Spartan", serif;
   font-optical-sizing: auto;
 }
+body,html{
+  scrollbar-width: none;
+}
 
 .carousel-image {
   width: 100%;
