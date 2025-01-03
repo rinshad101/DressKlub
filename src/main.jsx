@@ -12,6 +12,7 @@ import ProductView from "./pages/ProductView.jsx";
 import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import { CartProvider } from "./ContextApi/CartContext.jsx";
 
 const rout = createBrowserRouter([
   {
@@ -43,13 +44,15 @@ const rout = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
-  }
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <DataProvider>
-      <RouterProvider router={rout} />
+      <CartProvider>
+        <RouterProvider router={rout} />
+      </CartProvider>
     </DataProvider>
   </StrictMode>
 );

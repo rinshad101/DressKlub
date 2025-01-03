@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import img from "../assets/images/home.avif";
 
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { Link, useNavigate } from "react-router-dom";
+import DataContext from "../ContextApi/DataContext";
 
 const items = [
   <img src={img} alt="Item 1" className="carousel-image" />,
