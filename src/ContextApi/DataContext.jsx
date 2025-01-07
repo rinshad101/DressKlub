@@ -9,7 +9,7 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:4000/product');
+        const response = await fetch('http://localhost:3000/product');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
