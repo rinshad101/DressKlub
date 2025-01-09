@@ -13,6 +13,12 @@ import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import { CartProvider } from "./ContextApi/CartContext.jsx";
+import { UserProvider } from "./ContextApi/UserContext.jsx";
+import AdminLayout from "./admin/component/AdminLayout.jsx";
+import Users from "./admin/pages/Users.jsx";
+import DashBoard from "./admin/pages/DashBoard.jsx";
+import Products from "./admin/pages/Products.jsx";
+import Orders from "./admin/pages/Orders.jsx";
 
 const rout = createBrowserRouter([
   {
@@ -45,14 +51,36 @@ const rout = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      {
+        index: true,
+        element: <DashBoard />,
+      },{
+        path: "/admin/products",
+        element: <Products />,
+      },
+      {
+        path: "/admin/users",
+        element: <Users />,
+      },{
+        path: "/admin/orders",
+        element: <Orders />,
+      }
+    ],
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <DataProvider>
-      <CartProvider>
-        <RouterProvider router={rout} />
-      </CartProvider>
-    </DataProvider>
+    <UserProvider>
+      <DataProvider>
+        <CartProvider>
+          <RouterProvider router={rout} />
+        </CartProvider>
+      </DataProvider>
+    </UserProvider>
   </StrictMode>
 );

@@ -76,13 +76,13 @@ function NavBar() {
               localStorage.clear();
               alert("logout successfully");
             }}
-            className="xl:flex gap-2 items-center hidden"
+            className="xl:flex gap-2 items-center hidden cursor-pointer"
           >
             <p>Log Out</p> <CircleUserIcon />
           </li>
         ) : (
           <Link to={"/login"}>
-            <li className="xl:flex gap-2 items-center hidden">
+            <li className="xl:flex gap-2 items-center hidden cursor-pointer">
               <p>Log In</p> <CircleUserIcon />
             </li>
           </Link>

@@ -31,15 +31,23 @@ const Login = () => {
       const data = Response.data;
       const user = data.find((user) => (detail.name===user.email || user.name === detail.name) && user.password === detail.password )
 
-      if (user) {
+      if (user.role === "admin") {
+        alert("welcom..........")
+        localStorage.setItem("user",JSON.stringify(user));
+
+        navigate("/admin")
+        console.log(user)
+        
+      }else if(user){
         alert("login successful")
         localStorage.setItem("user",JSON.stringify(user));
         
 
         navigate("/")
         console.log(user);
-        
-      }else{
+      }
+      
+      else{
         alert("invalid username or password");
       }
     } catch (error) {
