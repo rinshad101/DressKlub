@@ -1,24 +1,8 @@
 {
   "product": [
     {
-      "id": "1",
-      "name": "Women's Crewneck Sweater",
-      "catagory": "Women",
-      "price": 799,
-      "size": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "image": [
-        "https://iili.io/2SYRons.jpg",
-        "https://iili.io/2SYdTVn.jpg"
-      ]
-    },
-    {
       "id": "2",
-      "name": "White Denim Jeans",
+      "name": "White Denim pant",
       "catagory": "Women",
       "price": 1099,
       "size": [
@@ -146,7 +130,7 @@
     },
     {
       "id": "10",
-      "name": "Oversized T-Shirt",
+      "name": "Oversized T-Shirt ",
       "catagory": "Women",
       "price": 1000,
       "size": [

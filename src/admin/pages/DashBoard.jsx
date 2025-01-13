@@ -2,7 +2,7 @@ import React from 'react'
 
 function DashBoard() {
   return (
-    <div>
+    <div className='mt-16'>
       <h1>this is DashBoard</h1>
     </div>
   )

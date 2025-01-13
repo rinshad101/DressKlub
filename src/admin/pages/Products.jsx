@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DataContext from "../../ContextApi/DataContext";
 import { useContext } from "react";
-import { ChevronDownCircle, ChevronDownIcon, Droplet } from "lucide-react";
+import { ChevronDownIcon } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../../../servies/api";
 
 function Products() {
+  const navigate = useNavigate();
   const { data, loading } = useContext(DataContext);
   const [isSortBarOpen, setSortBarOpen] = useState(false);
   const [sortType, setSortType] = useState("Select");
@@ -15,6 +18,24 @@ function Products() {
       return item.catagory === sortType;
     }
   });
+
+  const handleUpdate = (product) => {
+    navigate("/admin/updateproducts", { state: { product } });
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await api.delete(`/product/${id}`);
+      if (response) {
+        alert("Product deleted successfully!");
+        window.location.reload()
+      } else {
+        alert("Failed to delete product");
+      }
+    } catch (error) {
+      alert("error");
+    }
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -90,9 +111,11 @@ function Products() {
           </div>
         </div>
 
-        <button className="bg-green-500 text-white text-xl xl:px-10 px-3 xl:py-2 py-1 xl:rounded-md rounded-sm hover:bg-green-600">
-          Add
-        </button>
+        <Link to={"/admin/addproducts"}>
+          <button className="bg-green-500 text-white text-xl xl:px-10 px-3 xl:py-2 py-1 xl:rounded-md rounded-sm hover:bg-green-600">
+            Add
+          </button>
+        </Link>
       </div>
 
       <div className="bg-white shadow-lg rounded-lg xl:p-6 p-2 grid xl:grid-cols-5 grid-cols-4 mb-1 xl:font-bold xl:text-xl text-sm">
@@ -106,7 +129,7 @@ function Products() {
         <p className="text-center xl:block hidden">Delete</p>
         <p className="text-center xl:hidden block">Edit</p>
       </div>
-      <div className="bg-white shadow-lg rounded-lg flex flex-col gap-2 text-sm">
+      <div className="bg-white shadow-lg rounded-lg flex flex-col gap-2 text-sm cursor-pointer">
         {filteredProducts?.map((item, index) => {
           return (
             <div
@@ -124,8 +147,15 @@ function Products() {
               </div>
               <p className="text-center">{item.price}</p>
               <p className="text-center">{item.catagory}</p>
-              <p className="text-center xl:block hidden">Update</p>
-              <p className="text-center xl:block hidden">Delete</p>
+
+              <p
+                onClick={() => handleUpdate(item)}
+                className="text-center xl:block hidden"
+              >
+                Update
+              </p>
+
+              <p onClick={() => handleDelete(item.id)} className="text-center xl:block hidden">Delete</p>
               <p className="text-center xl:hidden block">Edit</p>
             </div>
           );

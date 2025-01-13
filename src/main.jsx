@@ -19,6 +19,8 @@ import Users from "./admin/pages/Users.jsx";
 import DashBoard from "./admin/pages/DashBoard.jsx";
 import Products from "./admin/pages/Products.jsx";
 import Orders from "./admin/pages/Orders.jsx";
+import AddProducts from "./admin/pages/AddProducts.jsx";
+import UpdateProducts from "./admin/pages/UpdateProducts.jsx";
 
 const rout = createBrowserRouter([
   {
@@ -58,16 +60,26 @@ const rout = createBrowserRouter([
       {
         index: true,
         element: <DashBoard />,
-      },{
+      },
+      {
         path: "/admin/products",
         element: <Products />,
       },
       {
         path: "/admin/users",
         element: <Users />,
-      },{
+      },
+      {
         path: "/admin/orders",
         element: <Orders />,
+      },
+      {
+        path: "/admin/addproducts",
+        element: <AddProducts />,
+      },
+      {
+        path: "/admin/updateproducts",
+        element: <UpdateProducts />,
       }
     ],
   },

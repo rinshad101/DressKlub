@@ -78,9 +78,17 @@ const AdminSidebar = () => {
           </Link>
         </div>
         <div className="absolute bottom-24">
-          <button className="px-10 py-3 bg-red-500 hover:bg-red-600 text-lg text-white font-medium rounded-md transition-colors">
-            Log Out
-          </button>
+          <Link to={"/login"}>
+            <button
+              onClick={() => {
+                localStorage.clear();
+                alert("log out successfully");
+              }}
+              className="px-10 py-3 bg-red-500 hover:bg-red-600 text-lg text-white font-medium rounded-md transition-colors"
+            >
+              Log Out
+            </button>
+          </Link>
         </div>
       </div>
     </>
