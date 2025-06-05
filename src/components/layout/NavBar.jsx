@@ -11,6 +11,8 @@ function NavBar() {
   const { cart } = useContext(CartContext);
   const navigate = useNavigate();
   const [isSrolled, setIsScrolled] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -31,6 +33,15 @@ function NavBar() {
     console.log(category);
     navigate(`/collections/${category}`);
   };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim() !== "") {
+      navigate(`/search/${searchTerm}`);
+      setSearchTerm("");
+      setShowSearch(false);
+    }
+  }
   return (
     <div
       className={`flex justify-between items-center p-5  xl:px-10 text-2xl w-full fixed top-0 z-50 ${
@@ -43,13 +54,13 @@ function NavBar() {
 
       <div className="list-none xl:flex gap-4 hidden">
         <li
-          onClick={() => handleNav("Women")}
+          onClick={() => handleNav("women")}
           className="hover:underline cursor-pointer"
         >
           Women
         </li>
         <li
-          onClick={() => handleNav("Men")}
+          onClick={() => handleNav("men")}
           className="hover:underline cursor-pointer"
         >
           Men
@@ -88,13 +99,34 @@ function NavBar() {
           </Link>
         )}
 
-        <li className="xl:flex items-center hidden">
+        <li
+          onClick={() => setShowSearch(!showSearch)}
+          className="xl:flex items-center hidden cursor-pointer"
+        >
           <FontAwesomeIcon icon={faSearch} />
         </li>
+
+        {showSearch && (
+          <form
+            onSubmit={handleSearchSubmit}
+            className="absolute top-[85px] right-3 "
+          >
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search..."
+              className="p-3 bg-slate-100 border border-slate-200 rounded-md text-lg w-[500px]"
+              
+            />
+            
+          </form>
+        )}
+
         <Link to={"/cart"}>
           <div className="relative">
             <li className="flex items-center">
-              <ShoppingBagIcon className="h-7 text-black" strokeWidth={2}/>
+              <ShoppingBagIcon className="h-7 text-black" strokeWidth={2} />
             </li>
             <p className="absolute top-[6px] right-[2px] flex items-center justify-center p-3  w-3 h-3 rounded-full text-black font-mono text-[10px] font-bold">
               {cart.length}

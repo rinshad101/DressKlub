@@ -2,14 +2,14 @@
   "product": [
     {
       "id": "2",
-      "name": "White Denim pant",
-      "catagory": "Women",
-      "price": 1099,
+      "name": "White Denim pant ggjhsh",
+      "catagory": "men",
+      "price": "109",
       "size": [
-        "S",
         "M",
-        "L",
-        "XL"
+        "M",
+        "M",
+        "M"
       ],
       "image": [
         "https://iili.io/2SYdsON.jpg",
@@ -35,13 +35,10 @@
     {
       "id": "4",
       "name": "Women's Oversized Sweatshirt",
-      "catagory": "Women",
+      "catagory": "women",
       "price": 400,
       "size": [
-        "S",
-        "M",
-        "L",
-        "XL"
+        "M"
       ],
       "image": [
         "https://iili.io/2SYoaEB.jpg",
@@ -67,7 +64,7 @@
     {
       "id": "6",
       "name": "Men's Denim Jeans",
-      "catagory": "Men",
+      "catagory": "men",
       "price": 600,
       "size": [
         "S",
@@ -83,7 +80,7 @@
     {
       "id": "7",
       "name": "Men's Denim Jeans",
-      "catagory": "Men",
+      "catagory": "men",
       "price": 700,
       "size": [
         "S",
@@ -99,7 +96,7 @@
     {
       "id": "8",
       "name": "Men's Cotton Shorts",
-      "catagory": "Men",
+      "catagory": "men",
       "price": 800,
       "size": [
         "S",
@@ -115,7 +112,7 @@
     {
       "id": "9",
       "name": "Oversized T-Shirt",
-      "catagory": "Women",
+      "catagory": "women",
       "price": 900,
       "size": [
         "S",
@@ -131,7 +128,7 @@
     {
       "id": "10",
       "name": "Oversized T-Shirt ",
-      "catagory": "Women",
+      "catagory": "women",
       "price": 1000,
       "size": [
         "S",
@@ -143,6 +140,64 @@
         "https://iili.io/2SYuIxs.jpg",
         "https://iili.io/2SY0dzB.jpg"
       ]
+    },
+    {
+      "id": "a5e4",
+      "name": "rinshad",
+      "price": "344",
+      "catagory": "men",
+      "size": [
+        "M",
+        "L",
+        "L",
+        "XL"
+      ],
+      "image": [
+        "https://tse1.mm.bing.net/th?id=OIP.d6um5TEcW5GZozsXIH0uUwHaHa&pid=Api&P=0&h=220",
+        "https://tse4.mm.bing.net/th?id=OIP.bHo3iVch26DnqT2AOvwIhgHaL2&pid=Api&P=0&h=220"
+      ]
+    },
+    {
+      "id": "0705",
+      "name": "rinshad",
+      "price": "344",
+      "catagory": "men",
+      "size": [
+        "M",
+        "S",
+        "L"
+      ],
+      "image": [
+        "https://tse1.mm.bing.net/th?id=OIP.d6um5TEcW5GZozsXIH0uUwHaHa&pid=Api&P=0&h=220",
+        "https://tse4.mm.bing.net/th?id=OIP.bHo3iVch26DnqT2AOvwIhgHaL2&pid=Api&P=0&h=220"
+      ]
+    },
+    {
+      "id": "de5e",
+      "name": "rinshad",
+      "price": "344",
+      "catagory": "men",
+      "size": [
+        "XL",
+        "M"
+      ],
+      "image": [
+        "https://tse1.mm.bing.net/th?id=OIP.d6um5TEcW5GZozsXIH0uUwHaHa&pid=Api&P=0&h=220",
+        "https://tse4.mm.bing.net/th?id=OIP.bHo3iVch26DnqT2AOvwIhgHaL2&pid=Api&P=0&h=220"
+      ]
+    },
+    {
+      "id": "46dc",
+      "name": "rinshad",
+      "price": "344",
+      "catagory": "men",
+      "size": [
+        "M"
+      ],
+      "image": [
+        "https://tse1.mm.bing.net/th?id=OIP.d6um5TEcW5GZozsXIH0uUwHaHa&pid=Api&P=0&h=220",
+        "https://tse4.mm.bing.net/th?id=OIP.bHo3iVch26DnqT2AOvwIhgHaL2&pid=Api&P=0&h=220"
+      ]
     }
   ],
   "user": [
@@ -152,14 +207,54 @@
       "password": "rinshad",
       "email": "rinshad@gmail.com",
       "role": "admin",
-      "cart": []
+      "cart": [
+        {
+          "id": "6",
+          "name": "Men's Denim Jeans",
+          "catagory": "men",
+          "price": 600,
+          "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "image": [
+            "https://iili.io/2SYx8KB.jpg",
+            "https://iili.io/2SYc5Qt.jpg"
+          ],
+          "uniqueKey": "6-1739184937781",
+          "quantity": 2,
+          "selectedSize": "S"
+        },
+        {
+          "id": "2",
+          "name": "White Denim pant ggjhsh",
+          "catagory": "men",
+          "price": "109",
+          "size": [
+            "M",
+            "M",
+            "M",
+            "M"
+          ],
+          "image": [
+            "https://iili.io/2SYdsON.jpg",
+            "https://iili.io/2SYRpJ2.jpg"
+          ],
+          "uniqueKey": "2-1748319577865",
+          "quantity": 2,
+          "selectedSize": "M"
+        }
+      ]
     },
     {
       "id": "2",
       "name": "user",
       "password": "user",
       "email": "user@gmail.com",
-      "role": "user"
+      "role": "user",
+      "cart": []
     },
     {
       "id": "3",
@@ -188,6 +283,62 @@
       "password": "121212",
       "email": "minhaj1234@gmail.com",
       "role": "user"
+    }
+  ],
+  "orders": [
+    {
+      "orderId": "001",
+      "userId": "2",
+      "products": [
+        {
+          "productId": "3",
+          "name": "Blue color Knit Beanie",
+          "price": 299,
+          "quantity": 1
+        },
+        {
+          "productId": "2",
+          "name": "White Denim pant",
+          "price": 1099,
+          "quantity": 2
+        }
+      ],
+      "orderDate": "2025-01-08",
+      "totalPrice": 2497,
+      "status": "Delivered",
+      "id": "27fc"
+    },
+    {
+      "orderId": "002",
+      "userId": "3",
+      "products": [
+        {
+          "productId": "2",
+          "name": "White Denim pant",
+          "price": 1099,
+          "quantity": 1
+        }
+      ],
+      "orderDate": "2025-01-07",
+      "totalPrice": 1099,
+      "status": "Processing",
+      "id": "dec7"
+    },
+    {
+      "orderId": "003",
+      "userId": "4",
+      "products": [
+        {
+          "productId": "3",
+          "name": "Blue color Knit Beanie",
+          "price": 299,
+          "quantity": 3
+        }
+      ],
+      "orderDate": "2025-01-06",
+      "totalPrice": 897,
+      "status": "Shipped",
+      "id": "e456"
     }
   ]
 }

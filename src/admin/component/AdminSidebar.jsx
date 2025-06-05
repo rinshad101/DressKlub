@@ -50,7 +50,7 @@ const AdminSidebar = () => {
       <div
         className={`fixed z-20 top-0 left-0 h-screen bg-gray-800 text-white flex flex-col items-center justify-start gap-8 py-10 px-4 shadow-lg transform transition-transform  ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0  md:w-[350px] md:h-screen`}
+        } md:translate-x-0 md:w-[350px] md:h-screen`}
       >
         <h1 className="text-2xl md:text-3xl font-semibold xl:mt-0 mt-10">
           DressKlub

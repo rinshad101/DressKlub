@@ -21,6 +21,10 @@ import Products from "./admin/pages/Products.jsx";
 import Orders from "./admin/pages/Orders.jsx";
 import AddProducts from "./admin/pages/AddProducts.jsx";
 import UpdateProducts from "./admin/pages/UpdateProducts.jsx";
+import AdminProfile from "./admin/pages/AdminProfile.jsx";
+import { OrderProvider } from "./ContextApi/OrderContext.jsx";
+import { Provider } from "react-redux";
+import store from "./redux/store.js";
 
 const rout = createBrowserRouter([
   {
@@ -62,6 +66,10 @@ const rout = createBrowserRouter([
         element: <DashBoard />,
       },
       {
+        path: "/admin/profile",
+        element: <AdminProfile />,
+      },
+      {
         path: "/admin/products",
         element: <Products />,
       },
@@ -80,19 +88,27 @@ const rout = createBrowserRouter([
       {
         path: "/admin/updateproducts",
         element: <UpdateProducts />,
-      }
+      },
     ],
   },
 ]);
 
+// createRoot(document.getElementById("root")).render(
+//   <StrictMode>
+//     <UserProvider>
+//       <DataProvider>
+//         <CartProvider>
+//           <OrderProvider>
+//             <RouterProvider router={rout} />
+//           </OrderProvider>
+//         </CartProvider>
+//       </DataProvider>
+//     </UserProvider>
+//   </StrictMode>
+// );
+
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <UserProvider>
-      <DataProvider>
-        <CartProvider>
-          <RouterProvider router={rout} />
-        </CartProvider>
-      </DataProvider>
-    </UserProvider>
-  </StrictMode>
+  <Provider store={store}>
+    <RouterProvider router={rout} />
+  </Provider>
 );

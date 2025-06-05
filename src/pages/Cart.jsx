@@ -27,10 +27,12 @@ const Cart = () => {
   };
 
   return (
-    <div className="p-8 pt-[100px]  mx-auto bg-white  rounded-lg">
+    <div className="p-20 pt-[100px]  mx-auto bg-white  rounded-lg">
       <h2 className="text-3xl font-bold text-center mb-8">Cart</h2>
       {cart.length === 0 ? (
-        <p className="text-xl text-center text-gray-500 p-60">Your cart is empty.</p>
+        <p className="text-xl text-center text-gray-500 p-60">
+          Your cart is empty.
+        </p>
       ) : (
         cart.map((item) => (
           <div
@@ -38,6 +40,9 @@ const Cart = () => {
             className="flex justify-between items-center py-4 border-b border-gray-200"
           >
             <div className="flex items-center space-x-4">
+              <div className="h-40 w-40 ">
+                <img className="w-full h-full object-cover" src={item.image} alt="" />
+              </div>
               <p className="text-lg font-semibold">{item.name}</p>
               <p className="text-lg text-gray-600">${item.price}</p>
             </div>

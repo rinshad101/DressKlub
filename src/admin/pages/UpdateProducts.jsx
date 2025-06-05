@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import api from "../../../servies/api";
 
 const UpdateProducts = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const ref = useRef();
   const { product: currentProduct } = location.state || {};
+  const [size, setSize] = useState([]);
   const [product, setProduct] = useState({
     id: "",
     name: "",
@@ -19,7 +21,7 @@ const UpdateProducts = () => {
     if (currentProduct) {
       setProduct(currentProduct);
     }
-  }, [currentProduct]);
+  }, []);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -28,13 +30,16 @@ const UpdateProducts = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     try {
-      const response = await api.patch(`/product/${product.id}`, product);
+      const response = await api.patch(`/product/${product.id}`, {
+        ...product,
+        size,
+      });
       if (response) {
         alert("Product updated successfully!");
         navigate("/admin/products");
-        window.location.reload()
+        window.location.reload();
       } else {
         alert("Failed to update the product.");
       }
@@ -42,6 +47,11 @@ const UpdateProducts = () => {
       console.error("Error updating product:", error);
       alert("An error occurred while updating the product.");
     }
+  };
+
+  const handleSize = () => {
+    const value = ref.current.value;
+    setSize([...size, value]);
   };
 
   return (
@@ -88,19 +98,24 @@ const UpdateProducts = () => {
               type="text"
               id="product_size"
               name="size"
-              value=""
-              placeholder="Enter size to remove"
+              ref={ref}
+              placeholder="Enter the new sizes"
               className="border border-black rounded-[3px] min-w-[400px] pl-2 py-1 text-sm"
             />
-            <button className="bg-red-600 hover:bg-red-400 text-black px-5 py-1 border border-black rounded-sm">
-              Remove
-            </button>
+            <div
+              onClick={handleSize}
+              className="bg-yellow-600 hover:bg-yellow-400 text-black px-5 py-1 border border-black rounded-sm"
+            >
+              Add
+            </div>
             <div
               className={`h-10 border border-black flex items-center text-sm px-2 ${
                 product.size.length <= 0 && "hidden"
               }`}
             >
-              {product.size.map((item) => item + " ")}
+              {size.length>0
+                ? size.map((item) => item + " ")
+                : product.size.map((item) => item + " ")}
             </div>
           </div>
         </div>
