@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import api from "../../servies/api";
+import { data } from "react-router-dom";
 
 const INITIAL_STATE = {
   users: [],
@@ -17,15 +18,16 @@ export const registerUser = createAsyncThunk(
   }
 );
 
-// const authSlice = createSlice({
-//     name: "auth",
-//     initialState: INITIAL_STATE,
-//     reducers:{},
-//     extraReducers: (builder) => {
-//         builder
-//             .addCase
-//     }
-// })
+export const loginUser = createAsyncThunk(
+  "auth/login",
+  async (data)
+)
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState: INITIAL_STATE,
+  reducers: {},
+  extraReducers: (builder) => {},
+});
 
 export default authSlice.reducer;
-

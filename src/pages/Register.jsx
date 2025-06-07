@@ -126,7 +126,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await dispatch(registerUser(input));
+      const response = await dispatch(registerUser(input)).unwrap();
       console.log(response);
       alert("you are registered successfully");
       navigate("/login");
@@ -154,7 +154,7 @@ const Register = () => {
             type="text"
             placeholder="Enter your userName"
             onChange={handleChange}
-            name="name"
+            name="username"
             value={input.username}
           />
           <input

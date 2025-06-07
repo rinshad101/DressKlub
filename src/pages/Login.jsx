@@ -3,13 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import api from "../../servies/api";
 
-
-
 const Login = () => {
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [detail, setDetail] = useState({
-    name: "",
+    email: "",
     password: "",
   });
 
@@ -21,33 +19,33 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(!detail.name||!detail.password){
+    if (!detail.name || !detail.password) {
       alert("Please fill in all fields");
       return;
     }
 
     try {
-      const Response = await api.get("/user");
+      const Response = await dispatch();
       const data = Response.data;
-      const user = data.find((user) => (detail.name===user.email || user.name === detail.name) && user.password === detail.password )
+      const user = data.find(
+        (user) =>
+          (detail.name === user.email || user.name === detail.name) &&
+          user.password === detail.password
+      );
 
       if (user.role === "admin") {
-        alert("welcom..........")
-        localStorage.setItem("user",JSON.stringify(user));
+        alert("welcom..........");
+        localStorage.setItem("user", JSON.stringify(user));
 
-        navigate("/admin")
-        console.log(user)
-        
-      }else if(user){
-        alert("login successful")
-        localStorage.setItem("user",JSON.stringify(user));
-        
-
-        navigate("/")
+        navigate("/admin");
         console.log(user);
-      }
-      
-      else{
+      } else if (user) {
+        alert("login successful");
+        localStorage.setItem("user", JSON.stringify(user));
+
+        navigate("/");
+        console.log(user);
+      } else {
         alert("invalid username or password");
       }
     } catch (error) {
@@ -62,11 +60,11 @@ const Login = () => {
           <h4 className="text-white text-2xl font-bold font-">login</h4>
           <input
             className="inputStyle"
-            type="text"
-            placeholder="userName or Email"
+            type="email"
+            placeholder=" Enter Email..."
             onChange={handleInput}
-            value={detail.name}
-            name="name"
+            value={detail.email}
+            name="email"
           />
           <input
             className="inputStyle"
