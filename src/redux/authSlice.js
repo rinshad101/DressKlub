@@ -20,8 +20,44 @@ export const registerUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk(
   "auth/login",
-  async (data)
-)
+  async (data, thunkAPI) => {
+    try {
+      const response = await api.post("/auth/login", data);
+      thunkAPI.dispatch(getCurrentUser());
+      return response.data;
+    } catch (error) {
+      console.log("API Error Response:", error.response?.data);
+      return thunkAPI.rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);
+
+export const getCurrentUser = createAsyncThunk(
+  "auth/getCurrentUser",
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await api.get("/auth/current-user");
+      thunkAPI.dispatch(getUserDetails(data));
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || error.message
+      );
+    }
+  }
+);
+
+export const getUserDetails = createAsyncThunk(
+  "auth/getUserDetails",
+  async (email, { rejectWithValue }) => {
+    try {
+      const response = await api.get(`/auth/user/${email}`);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || error.message);
+    }
+  }
+);
 
 const authSlice = createSlice({
   name: "auth",
