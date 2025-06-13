@@ -5,10 +5,12 @@ import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { CircleUserIcon, Menu } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import CartContext from "../../ContextApi/CartContext";
+
+import { useDispatch, useSelector } from "react-redux";
 
 function NavBar() {
-  const { cart } = useContext(CartContext);
+  const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isSrolled, setIsScrolled] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -34,14 +36,26 @@ function NavBar() {
     navigate(`/collections/${category}`);
   };
 
+  const categories = ["men", "women"];
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchTerm.trim() !== "") {
-      navigate(`/search/${searchTerm}`);
+      const isCategory = categories.find(
+        (cat) => cat.toLowerCase() === query.toLowerCase()
+      );
+
+      dispatch(
+        searchProducts({
+          name: !isCategory ? query : undefined,
+          category: isCategory ? query : undefined,
+        })
+      );
+      navigate(`/collections/${searchTerm}`);
       setSearchTerm("");
       setShowSearch(false);
     }
-  }
+  };
   return (
     <div
       className={`flex justify-between items-center p-5  xl:px-10 text-2xl w-full fixed top-0 z-50 ${
@@ -117,9 +131,7 @@ function NavBar() {
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search..."
               className="p-3 bg-slate-100 border border-slate-200 rounded-md text-lg w-[500px]"
-              
             />
-            
           </form>
         )}
 
@@ -129,7 +141,7 @@ function NavBar() {
               <ShoppingBagIcon className="h-7 text-black" strokeWidth={2} />
             </li>
             <p className="absolute top-[6px] right-[2px] flex items-center justify-center p-3  w-3 h-3 rounded-full text-black font-mono text-[10px] font-bold">
-              {cart.length}
+              {cartItems?.length}
             </p>
           </div>
         </Link>
