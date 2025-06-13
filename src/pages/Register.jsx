@@ -3,7 +3,7 @@
 // import api from "../../servies/api";
 
 // const Register = () => {
-  
+
 //   const [data, setData] = useState([]);
 //   const [input, setInput] = useState({
 //     username: "",
@@ -51,7 +51,7 @@
 //     const { name, value } = e.target;
 //     setInput({ ...input, [name]: value, id: data.length + 1,role:"user" });
 //     console.log(input);
-    
+
 //   };
 
 //   console.log(input);
@@ -104,12 +104,10 @@
 
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {useDispatch} from "react-redux";
-import api from "../../servies/api";
+import { useDispatch } from "react-redux";
 import { registerUser } from "../redux/authSlice";
 
 const Register = () => {
-  
   const dispatch = useDispatch();
   const [input, setInput] = useState({
     username: "",
@@ -119,9 +117,6 @@ const Register = () => {
   });
 
   const navigate = useNavigate();
-  const [isSubmit, setIsSubmit] = useState(false);
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -137,9 +132,8 @@ const Register = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setInput({ ...input, [name]: value, role:"USER" });
+    setInput({ ...input, [name]: value, role: "USER" });
     console.log(input);
-    
   };
 
   console.log(input);
@@ -189,4 +183,3 @@ const Register = () => {
 };
 
 export default Register;
-
